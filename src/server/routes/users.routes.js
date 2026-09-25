@@ -258,7 +258,3 @@ export function registerUsersRoutes(router, { users, audit }) {
     permission: 'users.roles.manage',
   });
 }
-
-
-
-

@@ -177,6 +177,11 @@ export const FIXTURES = Object.freeze({
     'secretary@church.test': { id: 'user-1', password: 'correct-horse-battery' },
     'usher@church.test': { id: 'user-2', password: 'correct-horse-battery' },
     'suspended@church.test': { id: 'user-3', password: 'correct-horse-battery' },
+    // The two Users-admin fixtures, given real sign-in credentials so the admin
+    // routes can also be reached through the actual login path — not only by a
+    // minted token. user-17 holds the full users.* set; user-18 is view-only.
+    'admin@church.test': { id: 'user-17', password: 'correct-horse-battery' },
+    'viewer@church.test': { id: 'user-18', password: 'correct-horse-battery' },
   },
   profiles: {
     'user-1': {
