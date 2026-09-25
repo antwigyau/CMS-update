@@ -1,0 +1,39 @@
+{
+  "name": "church-management-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Church Management System — secure MVP on Vercel + Supabase",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env.local scripts/dev-server.mjs",
+    "vendor:refresh": "node scripts/vendor-refresh.mjs",
+    "test": "node --test \"tests/**/*.test.js\"",
+    "test:unit": "node --test \"tests/unit/**/*.test.js\"",
+    "test:db": "node --test \"tests/db/**/*.test.js\"",
+    "db:start": "supabase start",
+    "db:stop": "supabase stop",
+    "db:reset": "supabase db reset",
+    "db:push": "supabase db push",
+    "db:stats": "node scripts/db-stats.mjs",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run lint && npm run format:check && npm test"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.58.0",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.7",
+    "@eslint/js": "^10.0.1",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
+    "eslint": "^10.9.1",
+    "prettier": "^3.6.2",
+    "supabase": "^2.115.0"
+  }
+}

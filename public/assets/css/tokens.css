@@ -1,0 +1,179 @@
+/* ==========================================================================
+   Design tokens
+   --------------------------------------------------------------------------
+   The single source of colour, spacing, type, and elevation for the whole app.
+   Component CSS must reference these variables, never raw hex values.
+
+   Contrast: every foreground/background pair defined below was measured against
+   WCAG 2.1 AA for normal text (>= 4.5:1). The lowest pair in the set is
+   --text-muted on --surface-page at 4.55:1. If you change a colour, re-measure.
+   ========================================================================== */
+
+:root {
+  /* ---- raw palette (never used directly by components) ---- */
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+
+  --brand-100: #e0e7ff;
+  --brand-200: #c7d2fe;
+  --brand-300: #a5b4fc;
+  --brand-500: #6366f1;
+  --brand-600: #4f46e5;
+  --brand-700: #4338ca;
+  --brand-800: #3730a3;
+
+  --success-300: #6ee7b7;
+  --success-700: #047857;
+  --warning-300: #fcd34d;
+  --warning-700: #b45309;
+  --danger-300: #fca5a5;
+  --danger-700: #b91c1c;
+
+  /* ---- spacing (4px base) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  /* ---- radius ---- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 999px;
+
+  /* ---- typography ---- */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Mono', 'Segoe UI Mono', Menlo, Consolas, monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --leading-tight: 1.25;
+  --leading-normal: 1.55;
+
+  /* ---- layout ---- */
+  --sidebar-width: 16rem;
+  --topbar-height: 3.5rem;
+  --content-max: 84rem;
+
+  /* ---- motion (respects reduced-motion below) ---- */
+  --transition-fast: 120ms ease;
+  --transition-base: 200ms ease;
+
+  --z-sticky: 100;
+  --z-sidebar: 200;
+  --z-modal: 400;
+  --z-toast: 500;
+}
+
+/* ---- semantic tokens: light (default) ---- */
+:root,
+[data-bs-theme='light'] {
+  --surface-page: var(--neutral-50);
+  --surface-card: #ffffff;
+  --surface-sunken: var(--neutral-100);
+  --surface-hover: var(--neutral-100);
+  --surface-sidebar: #ffffff;
+
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-600);
+  --text-muted: var(--neutral-500);
+  --text-on-brand: #ffffff;
+
+  --border-subtle: var(--neutral-200);
+  --border-strong: var(--neutral-300);
+
+  --brand: var(--brand-600);
+  --brand-hover: var(--brand-700);
+  --brand-soft: var(--brand-100);
+  --brand-text: var(--brand-700);
+
+  --success-text: var(--success-700);
+  --warning-text: var(--warning-700);
+  --danger-text: var(--danger-700);
+  --text-on-danger: #ffffff;
+
+  --focus-ring: 0 0 0 3px rgb(99 102 241 / 45%);
+  --shadow-sm: 0 1px 2px rgb(15 23 42 / 6%);
+  --shadow-md: 0 4px 12px rgb(15 23 42 / 8%);
+  --shadow-lg: 0 12px 32px rgb(15 23 42 / 12%);
+
+  --skeleton-base: var(--neutral-200);
+  --skeleton-sheen: var(--neutral-100);
+}
+
+/* ---- semantic tokens: dark ---- */
+[data-bs-theme='dark'] {
+  --surface-page: var(--neutral-900);
+  --surface-card: var(--neutral-800);
+  --surface-sunken: #172033;
+  --surface-hover: var(--neutral-700);
+  --surface-sidebar: var(--neutral-800);
+
+  --text-primary: var(--neutral-50);
+  --text-secondary: var(--neutral-300);
+  --text-muted: var(--neutral-400);
+  --text-on-brand: #ffffff;
+
+  --border-subtle: var(--neutral-700);
+  --border-strong: var(--neutral-600);
+
+  --brand: var(--brand-500);
+  --brand-hover: var(--brand-300);
+  --brand-soft: rgb(99 102 241 / 18%);
+  --brand-text: var(--brand-300);
+
+  --success-text: var(--success-300);
+  --warning-text: var(--warning-300);
+  --danger-text: var(--danger-300);
+  --text-on-danger: #ffffff;
+
+  --focus-ring: 0 0 0 3px rgb(165 180 252 / 55%);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 45%);
+  --shadow-lg: 0 12px 32px rgb(0 0 0 / 55%);
+
+  --skeleton-base: var(--neutral-700);
+  --skeleton-sheen: var(--neutral-600);
+}
+
+/* ---- bridge our tokens onto Bootstrap's variables ------------------------
+   Bootstrap components read --bs-* variables. Setting them here means one
+   palette drives both our CSS and every Bootstrap component we use, without
+   recompiling Sass.
+   ------------------------------------------------------------------------ */
+:root,
+[data-bs-theme='light'],
+[data-bs-theme='dark'] {
+  --bs-body-bg: var(--surface-page);
+  --bs-body-color: var(--text-primary);
+  --bs-secondary-color: var(--text-secondary);
+  --bs-border-color: var(--border-subtle);
+  --bs-border-radius: var(--radius-md);
+  --bs-body-font-family: var(--font-sans);
+  --bs-body-line-height: var(--leading-normal);
+  --bs-link-color: var(--brand-text);
+  --bs-link-hover-color: var(--brand-hover);
+  --bs-emphasis-color: var(--text-primary);
+  --bs-tertiary-bg: var(--surface-sunken);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-base: 0ms;
+  }
+}

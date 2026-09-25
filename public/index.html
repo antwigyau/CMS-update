@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Sign in to the church management system." />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Sign in · Church Manager</title>
+
+    <!-- Applies the saved theme before first paint. Must not be deferred. -->
+    <script src="/assets/js/core/theme-boot.js"></script>
+
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="/assets/css/tokens.css" />
+    <link rel="stylesheet" href="/assets/css/app.css" />
+  </head>
+
+  <body class="auth-layout">
+    <main class="auth-card">
+      <div class="auth-card__brand">
+        <span class="app-brand__mark"
+          ><i class="bi bi-house-heart-fill" aria-hidden="true"></i
+        ></span>
+        <span class="app-brand">Church Manager</span>
+      </div>
+
+      <h1 class="auth-card__title">Sign in</h1>
+      <p class="auth-card__subtitle">Use the account your church administrator created for you.</p>
+
+      <!-- novalidate: we render our own messages so they are consistent and
+           announced properly, rather than relying on browser bubbles. -->
+      <form id="login-form" novalidate autocomplete="on">
+        <div id="login-alert" hidden></div>
+
+        <div class="field">
+          <label class="field__label" for="email">
+            Email address <span class="field__required" aria-hidden="true">*</span>
+          </label>
+          <input
+            class="form-control"
+            id="email"
+            name="email"
+            type="email"
+            inputmode="email"
+            autocomplete="username"
+            required
+            aria-describedby="email-error"
+          />
+          <p class="field__error" id="email-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="password">
+            Password <span class="field__required" aria-hidden="true">*</span>
+          </label>
+          <input
+            class="form-control"
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+            aria-describedby="password-error"
+          />
+          <p class="field__error" id="password-error" hidden></p>
+        </div>
+
+        <button class="btn btn-primary w-100" id="login-submit" type="submit">
+          <span id="login-submit-label">Sign in</span>
+        </button>
+      </form>
+
+      <p class="auth-card__footer">
+        <a href="/forgot-password">Forgot your password?</a>
+      </p>
+    </main>
+
+    <script type="module" src="/assets/js/pages/login.js"></script>
+  </body>
+</html>

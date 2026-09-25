@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Secrets — never commit these
+.env
+.env.local
+.env.*.local
+*.pem
+
+# Vercel
+.vercel
+
+# Supabase local state
+supabase/.branches/
+supabase/.temp/
+
+# Vendored third-party assets are generated at build time by `npm run vendor:refresh`
+public/assets/vendor/
+
+# Test output
+coverage/
+test-results/
+playwright-report/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+*.swp

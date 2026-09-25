@@ -1,0 +1,9 @@
+# Excluded from Vercel deployments.
+
+# Local-only design system reference page.
+public/design-system
+
+# Tests and docs are not needed at runtime.
+tests
+docs
+BLUEPRINT.md

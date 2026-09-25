@@ -1,0 +1,21 @@
+/* Styles used only by the design system reference page (local development).
+   Kept out of app.css so nothing here ships to the real application. */
+
+.ds-swatch--surface-page {
+  background: var(--surface-page);
+}
+.ds-swatch--surface-card {
+  background: var(--surface-card);
+}
+.ds-swatch--surface-sunken {
+  background: var(--surface-sunken);
+}
+.ds-swatch--brand {
+  background: var(--brand);
+}
+.ds-swatch--brand-soft {
+  background: var(--brand-soft);
+}
+.ds-swatch--border-subtle {
+  background: var(--border-subtle);
+}

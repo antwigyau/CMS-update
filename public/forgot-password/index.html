@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Request a password reset link." />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Forgot your password · Church Manager</title>
+
+    <script src="/assets/js/core/theme-boot.js"></script>
+
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="/assets/css/tokens.css" />
+    <link rel="stylesheet" href="/assets/css/app.css" />
+  </head>
+
+  <body class="auth-layout">
+    <main class="auth-card">
+      <div class="auth-card__brand">
+        <span class="app-brand__mark"
+          ><i class="bi bi-house-heart-fill" aria-hidden="true"></i
+        ></span>
+        <span class="app-brand">Church Manager</span>
+      </div>
+
+      <h1 class="auth-card__title">Forgot your password</h1>
+      <p class="auth-card__subtitle">
+        Enter your email address and we will send you a link to set a new password.
+      </p>
+
+      <div id="forgot-alert" hidden></div>
+
+      <form id="forgot-form" novalidate>
+        <div class="field">
+          <label class="field__label" for="email">
+            Email address <span class="field__required" aria-hidden="true">*</span>
+          </label>
+          <input
+            class="form-control"
+            id="email"
+            name="email"
+            type="email"
+            inputmode="email"
+            autocomplete="username"
+            required
+            aria-describedby="email-error"
+          />
+          <p class="field__error" id="email-error" hidden></p>
+        </div>
+
+        <button class="btn btn-primary w-100" id="forgot-submit" type="submit">
+          <span id="forgot-submit-label">Send reset link</span>
+        </button>
+      </form>
+
+      <p class="auth-card__footer"><a href="/">Back to sign in</a></p>
+    </main>
+
+    <script type="module" src="/assets/js/pages/forgot-password.js"></script>
+  </body>
+</html>
